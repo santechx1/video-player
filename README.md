@@ -1,2 +1,2 @@
 # video-player
-JS practice project
+JavaScript with TypeScript practice project.
