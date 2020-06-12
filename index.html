@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <link rel="stylesheet" href="./styles.scss" />
+</head>
+
+<body>
+    <header>
+        <h1>Media Player</h1>
+        <p>An extensible media player.</p>
+    </header>
+    <main class="container">
+        <video class="movie">
+            <!-- Download the video from: http://bbb3d.renderfarming.net/download.html  and put it in assets folder,
+            don't forget to change the name of the file -->
+            <source src="./assets/bbb_sunflower.mp4" />
+        </video>
+
+        <button>Play/Pause</button>
+    </main>
+    <script>
+        const video = document.querySelector('video');
+        const button = document.querySelector('button');
+        // This is not recommended because browsers don't like automatic element actions 
+        // without a previous user interaction.        
+        // video.play(); 
+
+        function MediaPlayer(config) {
+            this.media = config.el;
+        }
+
+        MediaPlayer.prototype.play = function () {
+            this.media.play();
+        }
+
+        const player = new MediaPlayer({ el: video });
+        button.onclick = () => player.play();
+    </script>
+</body>
+
+</html>

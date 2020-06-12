@@ -2,14 +2,8 @@
   "name": "video-player",
   "version": "1.0.0",
   "description": "JavaScript with TypeScript practice project",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "live-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/santechx1/video-player.git"
-  },
+  "license": "MIT",
+  "author": "santech <santiagogf11@gmail.com>",
   "keywords": [
     "video",
     "player",
@@ -18,12 +12,17 @@
     "learning",
     "practice"
   ],
-  "author": "santech <santiagogf11@gmail.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santechx1/video-player.git"
+  },
   "bugs": {
     "url": "https://github.com/santechx1/video-player/issues"
   },
   "homepage": "https://github.com/santechx1/video-player#readme",
+  "scripts": {
+    "start": "live-server"
+  },
   "devDependencies": {
     "live-server": "^1.2.1"
   }
