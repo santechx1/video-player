@@ -16,6 +16,7 @@
     </header>
     <main class="container">
         <section class="container__content">
+            <h2 class="container__content--title">Video</h2>
             <video class="container__content--movie">
                 <!-- Download the video from: http://bbb3d.renderfarming.net/download.html  and put it in assets folder,
                 don't forget to change the name of the file -->
@@ -23,7 +24,7 @@
             </video>
         </section>
         <aside class="aside">
-            <h2 class="aside__title">Actions</h2>
+            <h3 class="aside__title">Actions</h3>
             <button class="aside__button">Play/Pause</button>
         </aside>
     </main>
@@ -42,11 +43,15 @@
             this.media.play();
         }
 
+        MediaPlayer.prototype.pause = function () {
+            this.media.pause();
+        }
+
         const player = new MediaPlayer({ el: video });
         button.onclick = () => {
-            (video.paused)
-                ? video.play()
-                : video.pause()
+            (player.media.paused)
+                ? player.media.play()
+                : player.media.pause()
         };
     </script>
 </body>
