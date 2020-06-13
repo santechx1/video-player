@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    font-family: 'Indie Flower', cursive;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    background-color: bisque;
+}
+
+.header__title, .header__subtitle {
+    margin: 0;      
+}
+
+.container {
+    display: flex;
+}
+
+.container__content {
+    display: flex;
+    flex: 1;
+}
+
+.container__content--movie {
+    max-width: 100%;
+}
+
+.aside {
+    display: flex;
+    flex-flow: column;
+    background-color: lavenderblush;
+    flex: 0 0 10%;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.aside__title {
+    align-self: center;
+}
+
+.aside__title, .aside__button {
+    margin: 5px;
+}

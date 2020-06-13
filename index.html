@@ -5,22 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Player</title>
-    <link rel="stylesheet" href="./styles.scss" />
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <h1>Media Player</h1>
-        <p>An extensible media player.</p>
+    <header class="header">
+        <h1 class="header__title">Media Player</h1>
+        <p class="header__subtitle">An extensible media player.</p>
     </header>
     <main class="container">
-        <video class="movie">
-            <!-- Download the video from: http://bbb3d.renderfarming.net/download.html  and put it in assets folder,
-            don't forget to change the name of the file -->
-            <source src="./assets/bbb_sunflower.mp4" />
-        </video>
-
-        <button>Play/Pause</button>
+        <section class="container__content">
+            <video class="container__content--movie">
+                <!-- Download the video from: http://bbb3d.renderfarming.net/download.html  and put it in assets folder,
+                don't forget to change the name of the file -->
+                <source src="./assets/bbb_sunflower.mp4" />
+            </video>
+        </section>
+        <aside class="aside">
+            <h2 class="aside__title">Actions</h2>
+            <button class="aside__button">Play/Pause</button>
+        </aside>
     </main>
     <script>
         const video = document.querySelector('video');
@@ -38,7 +43,11 @@
         }
 
         const player = new MediaPlayer({ el: video });
-        button.onclick = () => player.play();
+        button.onclick = () => {
+            (video.paused)
+                ? video.play()
+                : video.pause()
+        };
     </script>
 </body>
 
