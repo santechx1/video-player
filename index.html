@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Player</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 
@@ -20,7 +20,7 @@
             <video class="container__content--movie">
                 <!-- Download the video from: http://bbb3d.renderfarming.net/download.html  and put it in assets folder,
                 don't forget to change the name of the file -->
-                <source src="./assets/bbb_sunflower.mp4" />
+                <source src="/assets/bbb_sunflower.mp4" />
             </video>
         </section>
         <aside class="aside">
@@ -28,32 +28,7 @@
             <button class="aside__button">Play/Pause</button>
         </aside>
     </main>
-    <script>
-        const video = document.querySelector('video');
-        const button = document.querySelector('button');
-        // This is not recommended because browsers don't like automatic element actions 
-        // without a previous user interaction.        
-        // video.play(); 
-
-        function MediaPlayer(config) {
-            this.media = config.el;
-        }
-
-        MediaPlayer.prototype.play = function () {
-            this.media.play();
-        }
-
-        MediaPlayer.prototype.pause = function () {
-            this.media.pause();
-        }
-
-        const player = new MediaPlayer({ el: video });
-        button.onclick = () => {
-            (player.media.paused)
-                ? player.media.play()
-                : player.media.pause()
-        };
-    </script>
+    <script type="module" src="/assets/index.js"></script>
 </body>
 
 </html>
