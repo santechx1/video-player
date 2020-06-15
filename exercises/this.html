@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+
+<body>
+    <a href="/exercises/">Go back</a>
+    <p><em>Open the console tab</em></p>
+
+    <script>
+        // global scope
+        console.log(`this: ${this}`);
+
+        // function scope
+        function whoIsThis() {
+            return this;
+        }
+        console.log(`whoIsThis(): ${whoIsThis()}`);
+
+        // function scope, strict mode
+        function whoIsThisStrict() {
+            "use strict";
+            return this;
+        }
+        console.log(`whoIsThisStrict(): ${whoIsThisStrict()}`);
+
+        // object scope
+        const person = {
+            name: 'Person1',
+            greet: function () {
+                console.log(`Hi, I'm ${this.name}`);
+            },
+        };
+        person.greet();
+
+        // method out of object scope
+        const action = person.greet;
+        action();
+
+        // 'class' scope
+        function Person(name) {
+            // this = {}
+            this.name = name;
+        }
+        Person.prototype.greet = function () {
+            console.log(`Hello, I'm ${this.name}`);          
+        }
+
+        const person2 = new Person('Person2');
+        person2.greet();
+
+    </script>
+</body>
+
+</html>
