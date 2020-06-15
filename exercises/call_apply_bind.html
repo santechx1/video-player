@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call(),apply(),bind()</title>
+</head>
+
+<body>
+    <a href="/exercises/">Go back</a>
+    <p><em>Open the console tab</em></p>
+
+    <ul>
+        <li><button class="call-to-action">Action 1</button></li>
+        <li><button class="call-to-action">Action 2</button></li>
+        <li><button class="call-to-action">Action 3</button></li>
+    </ul>
+
+    <script>
+        // call
+        function greet() {
+            console.log(`Hi, I'm ${this.firstname} ${this.lastname}`);
+        }
+        const person1 = {
+            firstname: "Firstanme1",
+            lastname: "Lastname1"
+        }
+        greet.call(person1);
+
+        // call with arguments
+        function walk(distance, direction) {
+            console.log(`${this.firstname} walks ${distance} meters ${direction}`);
+        }
+        walk.call(person1, 100, 'south');
+
+        // apply
+        walk.apply(person1, [200, 'north']);
+        const values = [500, 'west'];
+        walk.apply(person1, values);
+
+        // bind
+        const person3 = { firstname: 'Fristname3', lastname: 'Lastname3' };
+        const person3Greets = greet.bind(person3);
+        person3Greets();
+        const person3Walks = walk.bind(person3);
+        person3Walks(800, 'east');
+        const person3Walks2 = walk.bind(person3, 1000, 'northeast');
+        person3Walks2();
+        // currying
+        const person3Walks3 = walk.bind(person3, 1200);
+        person3Walks3('northwest');
+
+        // real use case
+        const buttons = document.getElementsByClassName('call-to-action');
+        // throws an error, 'buttons' is a node list not an array
+        // buttons.forEach(btn => {
+        //     btn.onclick = () => alert('action done');
+        // });
+        Array.prototype.forEach.call(buttons, btn => {
+            btn.onclick = () => alert('action done');
+        });
+
+
+    </script>
+</body>
+
+</html>
