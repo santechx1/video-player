@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+
+<body>
+    <a href="/exercises/">Go back</a>
+    <p><em>Open the console tab</em></p>
+
+    <script>
+        // Closures
+        // printColor
+        //IIFE - Immeadiately Invoked Function Expression
+        // (function () {
+
+        //     let color = 'green';
+
+        //     function printColor() {
+        //         console.log(color);
+        //     }
+
+        //     printColor();
+        // })();
+
+        // function that returns another functions
+        function makeColorPrinter(color) {
+            let colorMessage = `This color is ${color}`;
+            return function () {
+                console.log(colorMessage);
+            }
+        }
+
+        let greenColorPrinter = makeColorPrinter("green");
+
+        //print a function
+        // console.log(greenColorPrinter);
+
+        //print the result of the function
+        // console.log(greenColorPrinter());
+
+        function makeCounter(n) {
+            let count = n;
+
+            return {
+                increase: function () {
+                    count = count + 1;
+                },
+                decrease: function () {
+                    count = count - 1;
+                },
+                getCount: function () {
+                    return count;
+                }
+            };
+        }
+
+        let counter = makeCounter(7);
+        console.log('The count is:', counter.getCount());
+        counter.increase();
+        console.log('The count is:', counter.getCount());
+        counter.decrease();
+        counter.decrease();
+        counter.decrease();
+        console.log('The count is:', counter.getCount());
+        // count variable is private, it cannot be accessed directly
+        console.log(counter.count);
+        counter.count = 0;
+        console.log('The count is:', counter.getCount());
+    </script>
+
+</body>
+
+</html>
