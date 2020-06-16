@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protoype</title>
+</head>
+
+<body>
+    <a href="/exercises/">Go back</a>
+    <p><em>Open the console tab</em></p>
+
+    <script>
+        // A simple object
+        // const metallica = {
+        //     name: 'Metallica',
+        // };
+
+        // metallica.play = function () {
+        //     console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        // }
+        // metallica.play();
+
+        // const pantera = {
+        //     name: 'Pantera',
+        // };
+
+        // pantera.play = function () {
+        //     console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        // }
+        // pantera.play();
+
+        // Optimizing our object
+        // function Band(name) {
+        //     const band = {
+        //         name: name
+        //     };
+
+        //     band.play = function () {
+        //         console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        //     };
+
+        //     return band;
+        // }
+
+        // const metallica = Band('Metallica');
+        // metallica.play();
+        // const pantera = Band('Pantera');
+        // pantera.play();
+
+        // Optimizing a bit more
+        // const bandMethods = {
+        //     play: function () {
+        //         console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        //     },
+        // };
+
+        // function Band(name) {
+        //     const band = {
+        //         name: name
+        //     };
+        //     band.play = bandMethods.play;
+        //     return band;
+        // }
+
+        // const metallica = Band('Metallica');
+        // metallica.play();
+        // const pantera = Band('Pantera');
+        // pantera.play();
+
+        // Object.create
+        // const newObject = Object.create(object)
+        // const bandMethods = {
+        //     play: function () {
+        //         console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        //     },
+        // };
+
+        // function Band(name) {
+        //     const band = Object.create(bandMethods);
+        //     band.name = name;
+        //     return band;
+        // }
+
+        // const metallica = Band('Metallica');
+        // metallica.play();
+        // const pantera = Band('Pantera');
+        // pantera.play();
+
+        // Using prototype property(it's and empty object)
+        // function Band(name) {
+        //     const band = Object.create(Band.prototype);
+        //     band.name = name;
+        //     return band;
+        // }
+
+        // Band.prototype.play = function () {
+        //     console.log(`Hey, we are ${this.name} and we are playing a song!`);
+        // };
+
+        // const metallica = Band('Metallica');
+        // metallica.play();
+        // const pantera = Band('Pantera');
+        // pantera.play();
+
+        // Using keyword 'new'
+        function Band(name) {
+            // const band = Object.create(Band.prototype);
+            this.name = name;
+            // return is not necessary
+            // return this;
+        }
+
+        Band.prototype.play = function () {
+            console.log(`Hey! We are ${this.name} and we are playing a song!`);
+        };
+        // Keyword 'new' is syntantic sugar, and assigns 'prototype' properties to object's 'this'
+        const metallica = new Band('Metallica');
+        metallica.play();
+        const pantera = new Band('Pantera');
+        pantera.play();
+    </script>
+</body>
+
+</html>
