@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance and Prototype chain</title>
+</head>
+
+<body>
+    <a href="/exercises/">Go back</a>
+    <p><em>Open the console tab</em></p>
+    <script>
+        function Band(name) {
+            this.name = name;
+        }
+
+        Band.prototype.play = function () {
+            console.log(`Hey! We are ${this.name} and we are playing a song!`);
+        };
+        const metallica = new Band('Metallica');
+        // instance properties
+        console.log(`Name: ${metallica.name}`);
+        // 'class' properties
+        console.log(`Play: ${metallica.play}`);
+        // inherited properties
+        console.log(`toString: ${metallica.toString}`);
+        // Object.hasOwnProperty
+        console.log(`metallica.hasOwnProperty("name"): ${metallica.hasOwnProperty("name")}`);
+        console.log(`metallica.hasOwnProperty("play"): ${metallica.hasOwnProperty("play")}`);
+        // Object.getPrototypeOf()
+        const prototypeOfMetallica = Object.getPrototypeOf(metallica);
+        console.log(`prototypeOfMetallica === Band.prototype: ${prototypeOfMetallica === Band.prototype}`);
+        Band.prototype.playLouder = function () {
+            console.log('YEAAAH!');
+        }
+        metallica.playLouder();
+        // Prototype chain
+        const prototypeOfPrototypeOfMetallica = Object.getPrototypeOf(prototypeOfMetallica);
+        console.log(`prototypeOfPrototypeOfMetallica.hasOwnProperty("toString"): ${prototypeOfPrototypeOfMetallica.hasOwnProperty("toString")}`);
+        console.log(`Object.hasOwnProperty("newProperty")> ${Object.hasOwnProperty("newProperty")}`);
+        const prototypeOfObject = Object.getPrototypeOf(Object.prototype);
+        console.log(prototypeOfObject);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
