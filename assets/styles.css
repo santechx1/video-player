@@ -7,7 +7,7 @@
 body {
     display: flex;
     flex-flow: column;
-    height: 100vh;
+    /* height: 100vh; */
     font-family: 'Indie Flower', cursive;
 }
 
@@ -44,9 +44,8 @@ body {
     margin-top: 0;
 }
 
-.container__content--movie {
+.container__content--movie, .container__content--comments {
     max-width: 95%;
-    max-height: 90%;
 }
 
 .aside {
