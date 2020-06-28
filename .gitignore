@@ -1,5 +1,9 @@
 # assets
-assets/bbb_sunflower.mp4
+website/assets/bbb_sunflower.mp4
+
+# npm lib
+mediaplayer/lib
+
 # Logs
 logs
 *.log

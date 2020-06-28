@@ -30,5 +30,7 @@
   "browserslist": [
     "last 1 Chrome version"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@santechx/platzimediaplayer": "^1.0.0"
+  }
 }
