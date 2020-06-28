@@ -1,12 +1,12 @@
-import MediaPlayer from "./MediaPlayer.js";
-import AutoPlay from "./plugins/Autoplay.js"
-import AutoPause from "./plugins/Autopause.js"
+import MediaPlayer from './MediaPlayer';
+import AutoPlay from './plugins/Autoplay';
+import AutoPause from './plugins/Autopause';
 
 
 const video = document.querySelector('video');
-const playButton = document.getElementById('playButton');
+const playButton: HTMLElement = document.getElementById('playButton');
 // const playButton = document.querySelector('#playButton');
-const muteButton = document.getElementById('muteButton');
+const muteButton: HTMLElement = document.getElementById('muteButton');
 // const playButton = document.querySelector('#muteButton');
 // This is not recommended because browsers don't like automatic element actions 
 // without a previous user interaction.        
